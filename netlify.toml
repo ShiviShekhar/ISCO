@@ -4,8 +4,8 @@
 # The root of the project
 base = "."
 
-# Command to install Python dependencies
-command = "pip install -r requirements.txt"
+# Command to install Python dependencies AND download the spaCy model
+command = "pip install -r requirements.txt && python -m spacy download en_core_web_sm"
 
 # Directory where the serverless functions are located
 functions = "netlify/functions"
