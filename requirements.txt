@@ -1,0 +1,10 @@
+pandas==2.2.2
+scikit-learn==1.5.0
+xgboost==2.0.3
+spacy==3.7.5
+ortools==9.10.4067
+Flask==3.0.3
+jupyter==1.0.0
+
+# It's recommended to download a spaCy model, e.g.:
+# python -m spacy download en_core_web_sm

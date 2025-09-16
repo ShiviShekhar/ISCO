@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISCO - Sales Coverage Optimization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Intelligent Sales Coverage Optimization (ISCO)</h1>
+            <p>Upload your seller and account data to generate an optimal assignment plan.</p>
+        </header>
+
+        <main>
+            <form id="upload-form">
+                <div class="form-group">
+                    <label for="sellers_file">Seller Data</label>
+                    <input type="file" id="sellers_file" name="sellers_file" accept=".csv" required>
+                    <small>Upload the `sellers.csv` file containing seller specializations and capacity.</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="accounts_file">Account Data</label>
+                    <input type="file" id="accounts_file" name="accounts_file" accept=".csv" required>
+                    <small>Upload the `accounts.csv` file containing account details and technology needs.</small>
+                </div>
+
+                <button type="submit" id="submit-btn">Run Optimization</button>
+            </form>
+
+            <div id="results-container" class="hidden">
+                <h2>Optimization Results</h2>
+                <div id="spinner" class="spinner hidden"></div>
+                <div id="status-updates"></div>
+                <div id="download-section" class="hidden">
+                    <a href="/download-results" class="button download-btn">Download Assignment Plan</a>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>ISCO System | Powered by AI</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', async function(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const formData = new FormData(form);
+            const resultsContainer = document.getElementById('results-container');
+            const statusUpdates = document.getElementById('status-updates');
+            const spinner = document.getElementById('spinner');
+            const submitBtn = document.getElementById('submit-btn');
+            const downloadSection = document.getElementById('download-section');
+
+            // Reset UI for a new run
+            resultsContainer.classList.remove('hidden');
+            spinner.classList.remove('hidden');
+            downloadSection.classList.add('hidden');
+            statusUpdates.innerHTML = '';
+            statusUpdates.style.color = 'inherit';
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Processing...';
+
+            try {
+                // Step 1: Upload files
+                updateStatus('Step 1/2: Uploading files...');
+                const uploadResponse = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!uploadResponse.ok) {
+                    const errorData = await uploadResponse.json();
+                    throw new Error(`File upload failed: ${errorData.error}`);
+                }
+                updateStatus('File upload successful.', true);
+
+                // Step 2: Run the full pipeline
+                updateStatus('\nStep 2/2: Running optimization pipeline... (This may take a minute)');
+                const optimizationResponse = await fetch('/run-optimization', {
+                    method: 'POST'
+                });
+
+                const resultsData = await optimizationResponse.json();
+
+                if (!optimizationResponse.ok) {
+                    throw new Error(`Optimization failed: ${resultsData.error}`);
+                }
+
+                // Display success and download button
+                const summary = resultsData.summary;
+                updateStatus(`\nOptimization Complete!\n- Status: ${resultsData.status}\n- Total Assigned Accounts: ${summary.total_assigned_accounts}\n- Total Predicted Value: $${summary.total_predicted_success_score.toLocaleString()}`, true);
+                downloadSection.classList.remove('hidden');
+
+            } catch (error) {
+                updateStatus(`\nAn error occurred: ${error.message}`, false, true);
+            } finally {
+                spinner.classList.add('hidden');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Run Optimization';
+            }
+        });
+
+        function updateStatus(message, append = false, isError = false) {
+            const statusUpdates = document.getElementById('status-updates');
+            if (append) {
+                statusUpdates.textContent += `\n${message}`;
+            } else {
+                statusUpdates.textContent = message;
+            }
+            statusUpdates.style.color = isError ? 'var(--error-color)' : 'inherit';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+seller_id,seller_name,specializations,max_accounts,max_revenue_potential,location
+seller_0,Seller 0,"Data Analytics,IoT",16,16859162,APAC
+seller_1,Seller 1,CRM Solutions,16,20336683,North America
+seller_2,Seller 2,CRM Solutions,12,21592218,North America
+seller_3,Seller 3,"Cloud Computing,Cybersecurity",16,15398453,North America
+seller_4,Seller 4,"Cloud Computing,DevOps,ERP Systems",12,16174456,LATAM
+seller_5,Seller 5,"ERP Systems,Data Analytics,CRM Solutions",12,24187184,EMEA
+seller_6,Seller 6,"AI/ML,Cloud Computing",12,20490710,APAC
+seller_7,Seller 7,"CRM Solutions,Cybersecurity",12,18709133,North America
+seller_8,Seller 8,"CRM Solutions,AI/ML",12,17639198,LATAM
+seller_9,Seller 9,"Cloud Computing,Data Analytics,IoT",14,20294876,LATAM
+seller_10,Seller 10,"CRM Solutions,DevOps",16,21042325,APAC
+seller_11,Seller 11,IoT,16,19602132,LATAM
+seller_12,Seller 12,"Cloud Computing,Cybersecurity",12,19610565,North America
+seller_13,Seller 13,"AI/ML,CRM Solutions",13,16145940,APAC
+seller_14,Seller 14,"Cloud Computing,AI/ML",14,22088898,EMEA
+seller_15,Seller 15,Cloud Computing,12,15017644,LATAM
+seller_16,Seller 16,"AI/ML,IoT",17,22016044,LATAM
+seller_17,Seller 17,"IoT,Cloud Computing,CRM Solutions",12,21804710,EMEA
+seller_18,Seller 18,DevOps,15,21276176,APAC
+seller_19,Seller 19,IoT,13,19153286,EMEA
+seller_20,Seller 20,"IoT,DevOps,Data Analytics",15,21285214,LATAM
+seller_21,Seller 21,DevOps,14,22294084,APAC
+seller_22,Seller 22,"DevOps,Data Analytics",13,20365966,North America
+seller_23,Seller 23,Cloud Computing,12,16896247,LATAM
+seller_24,Seller 24,"Cybersecurity,AI/ML,Data Analytics",17,17329959,North America
+seller_25,Seller 25,"ERP Systems,CRM Solutions",17,20497047,EMEA
+seller_26,Seller 26,CRM Solutions,17,20658550,North America
+seller_27,Seller 27,"DevOps,ERP Systems",14,21498850,North America
+seller_28,Seller 28,"DevOps,Data Analytics",12,23455106,EMEA
+seller_29,Seller 29,"IoT,Data Analytics",17,18947904,North America
+seller_30,Seller 30,"Cybersecurity,ERP Systems",14,21947451,APAC
+seller_31,Seller 31,"CRM Solutions,Data Analytics",16,22163887,EMEA
+seller_32,Seller 32,Data Analytics,15,18308825,EMEA
+seller_33,Seller 33,"Data Analytics,Cybersecurity",14,21874938,APAC
+seller_34,Seller 34,"DevOps,ERP Systems,AI/ML",12,15376224,LATAM
+seller_35,Seller 35,Data Analytics,13,21270906,EMEA
+seller_36,Seller 36,Data Analytics,13,16436884,LATAM
+seller_37,Seller 37,"ERP Systems,Data Analytics",17,20498900,EMEA
+seller_38,Seller 38,"AI/ML,Cybersecurity",15,18129320,APAC
+seller_39,Seller 39,Data Analytics,13,24316576,APAC
+seller_40,Seller 40,ERP Systems,14,24264728,LATAM
+seller_41,Seller 41,ERP Systems,14,22895381,North America
+seller_42,Seller 42,ERP Systems,14,15967147,APAC
+seller_43,Seller 43,"Data Analytics,AI/ML",13,24662309,APAC
+seller_44,Seller 44,"DevOps,Data Analytics,AI/ML",15,19388845,North America
+seller_45,Seller 45,"Cloud Computing,Cybersecurity",14,19505753,LATAM
+seller_46,Seller 46,CRM Solutions,16,18316580,EMEA
+seller_47,Seller 47,Data Analytics,12,18716829,APAC
+seller_48,Seller 48,Data Analytics,17,18412341,EMEA
+seller_49,Seller 49,"Cybersecurity,DevOps",17,18741834,North America
