@@ -1,0 +1,25 @@
+# Netlify configuration file
+
+[build]
+# Command to install Python dependencies
+command = "pip install -r requirements.txt"
+
+# Directory where the serverless functions are located
+functions = "netlify/functions"
+
+# Directory containing the static UI files to be published
+publish = "public"
+
+[build.environment]
+# Force the Python version for the build environment to ensure compatibility
+PYTHON_VERSION = "3.9"
+
+[functions]
+# Set the runtime for Python functions
+python_version = "3.9"
+
+[[redirects]]
+# Redirect all traffic to our serverless function handler
+from = "/*"
+to = "/.netlify/functions/api"
+status = 200
