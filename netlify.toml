@@ -1,6 +1,9 @@
 # Netlify configuration file
 
 [build]
+# The root of the project
+base = "."
+
 # Command to install Python dependencies
 command = "pip install -r requirements.txt"
 
